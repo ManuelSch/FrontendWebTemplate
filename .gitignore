@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template
+
+# IntelliJ project files
+.idea
+!.idea/runConfigurations/
+*.iml
+out
+gen
+build
+
+*.css.map
+.sass-cache
+
+node_modules
+bower_components
+src/lib

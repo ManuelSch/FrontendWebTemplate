@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "bower-installer": "^1.3.4",
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.2.0",
+    "gulp-open": "^2.0.0",
+    "gulp-run-sequence": "^0.3.2"
+  }
+}

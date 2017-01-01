@@ -1,0 +1,53 @@
+{
+  "name": "FrontendWebTemplate",
+  "authors": [
+    "manuel.schueller@tuwien.ac.at"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7",
+    "angular": "^1.6.1"
+  },
+  "install": {
+    "path": {
+      "js": "./src/lib/{name}/js",
+      "css": "./src/lib/{name}/css",
+      "eot": "./src/lib/{name}/fonts",
+      "svg": "./src/lib/{name}/fonts",
+      "ttf": "./src/lib/{name}/fonts",
+      "woff": "./src/lib/{name}/fonts",
+      "woff2": "./src/lib/{name}/fonts",
+      "*": "./src/lib/{name}"
+    },
+    "sources": {
+      "jquery": [
+        "bower_components/jquery/dist/jquery.js"
+      ],
+      "angular": [
+        "bower_components/angular/angular.js",
+        "bower_components/angular/angular-csp.css"
+      ],
+      "bootstrap": [
+        "bower_components/bootstrap/dist/css/bootstrap.css",
+        "bower_components/bootstrap/dist/css/bootstrap-theme.css",
+        "bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
+        "bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
+        "bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf",
+        "bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff",
+        "bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2",
+        "bower_components/bootstrap/dist/js/bootstrap.js"
+      ]
+    }
+  }
+}
