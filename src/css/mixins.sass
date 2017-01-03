@@ -1,0 +1,130 @@
+=fixed_height($value)
+  min-height: $value
+  max-height: $value
+
+=fixed_width($value)
+  min-width: $value
+  max-width: $value
+
+=gradient_subtle($color)
+  +gradient($color, 6)
+
+=gradient($color, $percent)
+  $top: lighten($color, $percent/2)
+  $bottom: darken($color,$percent/2)
+  background: $color /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($top , $bottom) /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($top, $bottom) /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($top, $bottom) /* For Firefox 3.6 to 15 */
+  background: linear-gradient($top , $bottom) /* Standard syntax */
+
+=transition($property, $duration, $easing: linear)
+  -webkit-transition: $property $duration $easing
+  -moz-transition: $property $duration $easing
+  -o-transition:  $property $duration $easing
+  -ms-transition: $property $duration $easing
+  transition: $property $duration $easing
+
+
+=center_hor()
+  display: flex
+  justify-content: center
+
+=center_ver()
+  display: flex
+  align-items: center
+
+=center_full()
+  +center_hor()
+  +center_ver()
+
+=hbox()
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  align-items: stretch
+
+=vbox()
+  display: flex
+  flex-direction: column
+  flex-wrap: nowrap
+  align-items: stretch
+
+=flex($prop)
+  -moz-flex: $prop
+  -ms-flex: $prop
+  -o-flex: $prop
+  -webkit-flex: $prop
+  flex: $prop
+
+=overflow_text()  //set "min-width: 0" on parent
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+=glyphicon_reset()
+  position: static
+  margin-right: 0
+
+=lighten_when_hover()
+  $percentage: 0.09
+  $time: 0.2s
+  +transition(box-shadow, $time, ease)
+  -webkit-box-shadow: 0 0 1000px 1000px rgba(255, 255, 255, $percentage) inset
+  -moz-box-shadow: 0 0 1000px 1000px rgba(255, 255, 255, $percentage) inset
+  -o-box-shadow:  0 0 1000px 1000px rgba(255, 255, 255, $percentage) inset
+  -ms-box-shadow: 0 0 1000px 1000px rgba(255, 255, 255, $percentage) inset
+  box-shadow: 0 0 1000px 1000px rgba(255, 255, 255, $percentage) inset
+
+=lighten_text_when_hover()
+  $time: 0.2s
+  +transition(color, $time, ease)
+  color: $col-text
+
+=darken_when_pressed()
+  $percentage: 0.2
+  $time: 0.01s
+  +transition(box-shadow, $time, ease)
+  -webkit-box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, $percentage) inset
+  -moz-box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, $percentage) inset
+  -o-box-shadow:  0 0 1000px 1000px rgba(0, 0, 0, $percentage) inset
+  -ms-box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, $percentage) inset
+  box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, $percentage) inset
+
+=border-radius($radius)
+  -moz-border-radius: $radius
+  -ms-border-radius: $radius
+  -o-border-radius: $radius
+  -webkit-border-radius: $radius
+  border-radius: $radius
+
+=box-shadow($prop...)
+  -webkit-box-shadow: $prop
+  -moz-box-shadow: $prop
+  -o-box-shadow:  $prop
+  -ms-box-shadow: $prop
+  box-shadow: $prop
+
+
+/* multiline text overflow */
+//http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/
+=multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white)
+  overflow: hidden
+  position: relative
+  line-height: $lineHeight
+  max-height: $lineHeight * $lineCount
+  margin-right: -1em
+  padding-right: 1em
+  &:before
+    content: '...'
+    position: absolute
+    right: 0
+    bottom: 0
+  &:after
+    content: ''
+    position: absolute
+    right: 0
+    width: 1em
+    height: 1em
+    margin-top: 0.2em
+    background: $bgColor
