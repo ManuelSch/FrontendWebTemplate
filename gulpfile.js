@@ -17,13 +17,13 @@ var c = {
     mainStyleSheet: '/main.sass'
 };
 c.src = {
-    'html': c.srcFolder + '',
+    'html': c.srcFolder + '/html',
     'css': c.srcFolder + '/css',
     'js': c.srcFolder + '/js',
     'lib': c.srcFolder + '/lib'
 };
 c.build = {
-    'html': c.buildFolder + '',
+    'html': c.buildFolder + '/html',
     'css': c.buildFolder + '/css',
     'js': c.buildFolder + '/js',
     'lib': c.buildFolder + '/lib'
@@ -54,7 +54,7 @@ gulp.task('inject', function () {
     return gulp.src(c.build.html + '/index.html')
         .pipe(inject(sources, { relative: true }))
         .pipe(browserSync.stream())
-        .pipe(gulp.dest(c.buildFolder));
+        .pipe(gulp.dest(c.build.html));
 });
 
 // Starts a local server for live reload while editing:
@@ -72,14 +72,12 @@ gulp.task('browser-sync', function () {
 // HTML files:
 gulp.task('html', function () {
     return gulp.src(c.src.html + '/**/*.html')
-        .pipe(browserSync.stream())
         .pipe(gulp.dest(c.build.html));
 });
 
 // CSS files:
 gulp.task('css', function () {
     return gulp.src(c.src.css + '/**/*.css')
-        .pipe(browserSync.stream())
         .pipe(gulp.dest(c.build.css));
 });
 
@@ -100,7 +98,6 @@ gulp.task('scss', function () {
 // JavaScript files:
 gulp.task('js', function () {
     return gulp.src(c.src.js + '/**/*.js')
-        .pipe(browserSync.stream())
         .pipe(gulp.dest(c.build.js));
 });
 
@@ -114,31 +111,49 @@ gulp.task('lib', function () {
 // File watchers:
 gulp.task('watch', function () {
     // HTML:
-    gulp.watch(c.src.html + '/**/*.html', ['html']);
+    gulp.watch(c.src.html + '/**/*.html', ['htmlBuild']);
 
     // CSS:
-    gulp.watch('css/**/*.css', {cwd: c.srcFolder}, ['css','inject']);
-    gulp.watch('css/**/*.sass', {cwd: c.srcFolder}, ['sass','inject']);
-    gulp.watch('css/**/*.scss', {cwd: c.srcFolder}, ['scss','inject']);
+    gulp.watch('css/**/*.css', {cwd: c.srcFolder}, ['cssBuild']);
+    gulp.watch('css/**/*.sass', {cwd: c.srcFolder}, ['sassBuild']);
+    gulp.watch('css/**/*.scss', {cwd: c.srcFolder}, ['scssBuild']);
 
     // JavaScript:
-    gulp.watch('js/**/*.js', {cwd: c.srcFolder}, ['js','inject']);
+    gulp.watch('js/**/*.js', {cwd: c.srcFolder}, ['jsBuild']);
 });
+
+gulp.task('htmlBuild', function () {
+    runSequence('html','inject');
+});
+gulp.task('cssBuild', function () {
+    runSequence('css','inject');
+});
+gulp.task('sassBuild', function () {
+    runSequence('sass','inject');
+});
+gulp.task('scssBuild', function () {
+    runSequence('scss','inject');
+});
+gulp.task('jsBuild', function () {
+    runSequence('js','inject');
+});
+
 
 // Open default browser (Chrome) automatically:
 gulp.task('open', function(){
     gulp.src(c.build.html + '/index.html')
-        .pipe(open({uri: 'http://localhost:' + c.port + '/index.html'}));
+        .pipe(open({uri: 'http://localhost:' + c.port + '/html/index.html'}));
 });
 
+// Delete build and src/lib folders:
 gulp.task('clean', function () {
     return gulp.src([c.buildFolder, c.src.lib], {read: false})
         .pipe(clean());
 });
 
+// Execute tasks strictly in sequence (tasks inside of arrays are executed concurrently)
 gulp.task('build', function() {
-    // Tasks are executed strictly in sequence (tasks inside of arrays are executed concurrently)
-    runSequence('clean',['bower-installer','browser-sync'],['css','html','js','lib'],['sass','scss'],'watch','inject','open');
+    runSequence('clean',['bower-installer','browser-sync'],['html','css','js','lib'],['sass','scss'],'watch','inject','open');
 });
 
 // Default task (when executing 'gulp')
