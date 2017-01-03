@@ -1,3 +1,16 @@
+<h1>Web Project Template for Frontend development</h1>
+
+<h2>Makes use of:</h2>
+<ul>
+    <li>npm ... package management</li>
+    <li>bower ... frontend library management</li>
+    <li>gulp ... task execution (custom build routines, Sass compiler and file watcher, live reload inside Chrome, js and css link injection, automated bower-install, ...)</li>
+    <li>AngularJS ... single page application development (routes) and html 'templates' (custom directives)</li>
+    <li>Sass ... css preprocessor providing variables, mixins and functions</li>
+    <li>Bootstrap</li>
+    <li>jQuery</li>
+</ul>
+
 <h2>How to:</h2>
 <h4>Setup:</h4>
 <ol>
@@ -51,8 +64,7 @@ Install all dependencies:
 </ol>
 
 <h4>gulpfile.js</h4>
-gulp file which includes all the gulp tasks (e.g. minification, ...)
+gulp file which includes all the gulp tasks
 <ul>
-    <li>gulp-uglify -> minification</li>
 </ul>
 <br/>
