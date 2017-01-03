@@ -1,9 +1,12 @@
+'use strict';
+
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var open = require('gulp-open');
 var inject = require('gulp-inject');
 var runSequence = require('gulp-run-sequence');
 var exec = require('child_process').exec;
+var sass = require('gulp-sass');
 
 // Custom configuration:
 var config = {
@@ -66,16 +69,38 @@ gulp.task('css', function () {
         .pipe(browserSync.stream());
 });
 
+// SASS files:
+gulp.task('sass', function () {
+    return gulp.src(config.allFiles('sass'))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(config.srcFolder));
+});
+
+// SCSS files:
+gulp.task('scss', function () {
+    return gulp.src(config.allFiles('scss'))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(config.srcFolder));
+});
+
 // JavaScript files:
 gulp.task('js', function () {
     return gulp.src(config.allFiles('js'))
         .pipe(browserSync.stream());
 });
 
+
 // File watchers:
 gulp.task('watch', function () {
+    // HTML:
     gulp.watch(config.allFiles('html'), ['html']);
+
+    // CSS:
     gulp.watch('css/**/*.css', {cwd: config.srcFolder}, ['css','inject']);
+    gulp.watch('css/**/*.sass', {cwd: config.srcFolder}, ['sass']);
+    gulp.watch('css/**/*.scss', {cwd: config.srcFolder}, ['scss']);
+
+    // JavaScript:
     gulp.watch('js/**/*.js', {cwd: config.srcFolder}, ['js','inject']);
 });
 
