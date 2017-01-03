@@ -16,8 +16,11 @@
   ],
   "dependencies": {
     "jquery": "^3.1.1",
-    "bootstrap": "^3.3.7",
-    "angular": "^1.6.1"
+    "angular": "^1.6.1",
+    "glyphicons-only-bootstrap": "^0.0.1"
+  },
+  "dependencies_currently_not_used": {
+    "bootstrap": "^3.3.7"
   },
   "install": {
     "path": {
@@ -38,6 +41,17 @@
         "bower_components/angular/angular.js",
         "bower_components/angular/angular-csp.css"
       ],
+      "glyphicons-only-bootstrap": [
+        "bower_components/glyphicons-only-bootstrap/css/bootstrap.css",
+        "bower_components/glyphicons-only-bootstrap/css/bootstrap-theme.css",
+        "bower_components/glyphicons-only-bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
+        "bower_components/glyphicons-only-bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
+        "bower_components/glyphicons-only-bootstrap/dist/fonts/glyphicons-halflings-regular.ttf",
+        "bower_components/glyphicons-only-bootstrap/dist/fonts/glyphicons-halflings-regular.woff",
+        "bower_components/glyphicons-only-bootstrap/dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "sources_currently_not_used": {
       "bootstrap": [
         "bower_components/bootstrap/dist/css/bootstrap.css",
         "bower_components/bootstrap/dist/css/bootstrap-theme.css",
