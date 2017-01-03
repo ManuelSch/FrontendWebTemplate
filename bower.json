@@ -18,7 +18,9 @@
     "jquery": "^3.1.1",
     "angular": "^1.6.1",
     "glyphicons-only-bootstrap": "^0.0.1",
-    "normalize-css": "normalize.css#^5.0.0"
+    "normalize-css": "normalize.css#^5.0.0",
+    "angular-route": "bower-angular-route#^1.6.1",
+    "angular-resource": "^1.6.1"
   },
   "dependencies_currently_not_used": {
     "bootstrap": "^3.3.7"
@@ -53,6 +55,12 @@
       ],
       "normalize-css": [
         "bower_components/normalize-css/normalize.css"
+      ],
+      "angular-route": [
+        "bower_components/angular-route/angular-route.js"
+      ],
+      "angular-resource": [
+        "bower_components/angular-resource/angular-resource.js"
       ]
     },
     "sources_currently_not_used": {
