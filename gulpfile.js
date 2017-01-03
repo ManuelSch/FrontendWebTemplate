@@ -122,6 +122,7 @@ gulp.task('watch', function () {
     gulp.watch('js/**/*.js', {cwd: c.srcFolder}, ['jsBuild']);
 });
 
+// Execute the file tasks and 'inject' in sequence:
 gulp.task('htmlBuild', function () {
     runSequence('html','inject');
 });
@@ -139,19 +140,19 @@ gulp.task('jsBuild', function () {
 });
 
 
-// Open default browser (Chrome) automatically:
+// Opens default browser (Chrome) automatically:
 gulp.task('open', function(){
     gulp.src(c.build.html + '/index.html')
         .pipe(open({uri: 'http://localhost:' + c.port + '/html/index.html'}));
 });
 
-// Delete build and src/lib folders:
+// Deletes build and src/lib folders:
 gulp.task('clean', function () {
     return gulp.src([c.buildFolder, c.src.lib], {read: false})
         .pipe(clean());
 });
 
-// Execute tasks strictly in sequence (tasks inside of arrays are executed concurrently)
+// Executes tasks strictly in sequence (tasks inside of arrays are executed concurrently)
 gulp.task('build', function() {
     runSequence('clean',['bower-installer','browser-sync'],['html','css','js','lib'],['sass','scss'],'watch','inject','open');
 });
