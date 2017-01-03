@@ -49,6 +49,7 @@ gulp.task('browser-sync', function () {
             baseDir: config.srcFolder
         },
         notify: false,
+        open: false,
         port: config.port
     });
 });

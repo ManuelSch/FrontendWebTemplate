@@ -3,6 +3,7 @@
 <ol>
     <li>Make sure Node.js is installed.</li>
     <li>Execute 'npm install' inside the project folder to download all node packages (gulp, ...)</li>
+    <li>Install bower-installer: 'npm install bower-installer -g'</li>
     <li>Done.</li>
 </ol>
  
