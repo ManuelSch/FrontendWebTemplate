@@ -13,7 +13,8 @@ var clean = require('gulp-clean');
 var c = {
     port: '9000',
     srcFolder: './src',
-    buildFolder: './build'
+    buildFolder: './build',
+    mainStyleSheet: '/main.sass'
 };
 c.src = {
     'html': c.srcFolder + '',
@@ -84,14 +85,14 @@ gulp.task('css', function () {
 
 // SASS files:
 gulp.task('sass', function () {
-    return gulp.src(c.src.css + '/main.sass')
+    return gulp.src(c.src.css + c.mainStyleSheet)
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(c.build.css));
 });
 
 // SCSS files:
 gulp.task('scss', function () {
-    return gulp.src(c.src.css + '/**/*.scss')
+    return gulp.src(c.src.css + c.mainStyleSheet)
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(c.build.css));
 });
