@@ -30,6 +30,7 @@ See also: https://www.youtube.com/playlist?list=PLRk95HPmOM6PN-G1xyKj9q6ap_dc9Yc
 
 <h2>Important files:</h2>
 
+<br/>
 <h4>bower.json</h4>
 bower and bower-installer config file including the dependencies (e.g. Angular)
 <br/><br/>
@@ -44,7 +45,7 @@ Install all dependencies:
      <li>Execute 'bower-installer' inside the project directory. This will not only download the packages to the bower_packages-folder (which is what 'bower install' would do), but it will also copy the important files defined in the bower.json-file (under "install" -> "sources") to the src-folder</li>
 </ol>
 </ul>
-
+<br/>
 <h4>package.json</h4>
 npm config file including the node.js dependencies (e.g. Gulp)
 <br/><br/>
@@ -58,7 +59,7 @@ Install all dependencies:
      <li>Navigate to project directory</li>
      <li>Type in: npm install</li>
 </ol>
-
+<br/>
 <h4>gulpfile.js</h4>
 gulp file including all the gulp tasks
 <ul>
