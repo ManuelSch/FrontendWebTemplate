@@ -20,12 +20,16 @@ c.src = {
     'html': c.srcFolder + '/html',
     'css': c.srcFolder + '/css',
     'js': c.srcFolder + '/js',
+    'fonts': c.srcFolder + '/fonts',
+    'img': c.srcFolder + '/img',
     'lib': c.srcFolder + '/lib'
 };
 c.build = {
     'html': c.buildFolder + '/html',
     'css': c.buildFolder + '/css',
     'js': c.buildFolder + '/js',
+    'fonts': c.buildFolder + '/fonts',
+    'img': c.buildFolder + '/img',
     'lib': c.buildFolder + '/lib'
 };
 
@@ -47,9 +51,9 @@ gulp.task('bower-installer', function (cb) {
 gulp.task('inject', function () {
     // It's not necessary to read the files (will speed up things), we're only after their paths:
     var sources = gulp.src([//c.build.lib + '/**/*.css',
-                            c.build.lib + '/**/*.js',
-                            c.build.css + '/**/*.css',
-                            c.build.js + '/**/*.js'], {read: false});
+        c.build.lib + '/**/*.js',
+        c.build.css + '/**/*.css',
+        c.build.js + '/**/*.js'], {read: false});
 
     return gulp.src(c.build.html + '/index.html')
         .pipe(inject(sources, { relative: true }))
@@ -107,6 +111,18 @@ gulp.task('lib', function () {
         .pipe(gulp.dest(c.build.lib));
 });
 
+// Font files:
+gulp.task('fonts', function () {
+    return gulp.src(c.src.fonts + '/**/*.*')
+        .pipe(gulp.dest(c.build.fonts));
+});
+
+// Image files:
+gulp.task('img', function () {
+    return gulp.src(c.src.img + '/**/*.*')
+        .pipe(gulp.dest(c.build.img));
+});
+
 
 // File watchers:
 gulp.task('watch', function () {
@@ -154,7 +170,7 @@ gulp.task('clean', function () {
 
 // Executes tasks strictly in sequence (tasks inside of arrays are executed concurrently)
 gulp.task('build', function() {
-    runSequence('clean',['bower-installer','browser-sync'],['html','css','js','lib'],['sass','scss'],'watch','inject','open');
+    runSequence('clean',['bower-installer','browser-sync'],['html','css','js','lib','fonts','img'],['sass','scss'],'watch','inject','open');
 });
 
 // Default task (when executing 'gulp')

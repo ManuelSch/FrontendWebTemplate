@@ -75,6 +75,8 @@ gulp file including all the gulp tasks
     <li>scss ... SCSS files</li>
     <li>js ... JavaScript files</li>
     <li>lib ... Bower packages files</li>
+    <li>fonts ... Font files</li>
+    <li>img ... Image files</li>
     <li>watch ... File watchers</li>
     <li>htmlBuild, cssBuild, etc. ... Execute the file tasks and 'inject' in sequence</li>
     <li>open ... opens the default browser automatically</li>
