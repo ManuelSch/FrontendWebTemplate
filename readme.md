@@ -1,4 +1,4 @@
-<h1>Web Project Template for Frontend development</h1>
+<h1>Project Template for Frontend Web Development</h1>
 
 <h2>Makes use of:</h2>
 <ul>
