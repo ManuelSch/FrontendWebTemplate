@@ -162,9 +162,9 @@ gulp.task('open', function(){
         .pipe(open({uri: 'http://localhost:' + c.port + '/html/index.html'}));
 });
 
-// Deletes build and src/lib folders:
+// Deletes build and src/lib/bower_components folders:
 gulp.task('clean', function () {
-    return gulp.src([c.buildFolder, c.src.lib], {read: false})
+    return gulp.src([c.buildFolder, c.src.lib + "/bower_components"], {read: false})
         .pipe(clean());
 });
 

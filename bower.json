@@ -27,14 +27,14 @@
   },
   "install": {
     "path": {
-      "js": "./src/lib/{name}/js",
-      "css": "./src/lib/{name}/css",
-      "eot": "./src/lib/{name}/fonts",
-      "svg": "./src/lib/{name}/fonts",
-      "ttf": "./src/lib/{name}/fonts",
-      "woff": "./src/lib/{name}/fonts",
-      "woff2": "./src/lib/{name}/fonts",
-      "*": "./src/lib/{name}"
+      "js": "./src/lib/bower_components/{name}/js",
+      "css": "./src/lib/bower_components/{name}/css",
+      "eot": "./src/lib/bower_components/{name}/fonts",
+      "svg": "./src/lib/bower_components/{name}/fonts",
+      "ttf": "./src/lib/bower_components/{name}/fonts",
+      "woff": "./src/lib/bower_components/{name}/fonts",
+      "woff2": "./src/lib/bower_components/{name}/fonts",
+      "*": "./src/lib/bower_components/{name}"
     },
     "sources": {
       "jquery": [

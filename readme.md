@@ -65,7 +65,7 @@ gulp file including all the gulp tasks
 <ul>
     <li>default ... Executes the build task</li>
     <li>build ... Runs the full build routine; makes sure the tasks are executed in sequence</li>
-    <li>clean ... Deletes the build and src/lib folders</li>
+    <li>clean ... Deletes the build and src/lib/bower_components folders</li>
     <li>bower-installer ... Executes 'bower-installer'</li>
     <li>inject ... Injects js- and css-links into index.html</li>
     <li>browser-sync ... Starts a local server for live reload while editing:</li>

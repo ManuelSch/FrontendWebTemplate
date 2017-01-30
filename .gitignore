@@ -14,4 +14,4 @@ build
 
 node_modules
 bower_components
-src/lib
+src/lib/bower_components
